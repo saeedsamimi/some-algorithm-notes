@@ -11,8 +11,10 @@ project(helloHelloByeBye C)
 project(allSubsets C)
 # mathematics configurations
 project(math-polynomials C)
+project(math-polynomials-C++ CXX)
 
 set(CMAKE_C_STANDARD 23)
+set(CMAKE_CXX_STANDARD 23)
 
 # quera practice files
 add_executable(Quera-Practice-Cake-or-Fake Quera-Practice/CakeOrFake.c)
@@ -26,3 +28,4 @@ add_executable(helloHelloByeBye Contest/HelloHelloGoodByeBye.c)
 add_executable(allSubsets Contest/allSubsets.c)
 # mathematics files
 add_executable(math-polynomials Mathematics/Polynomials.c)
+add_executable(math-polynomials-C++ Mathematics/Polynomials.cpp Mathematics/Polynomials.h)

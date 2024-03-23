@@ -1,0 +1,3 @@
+project(ShortestWithNegativePath)
+
+add_executable(ShortestWithNegativePath BellmanFord.cpp)

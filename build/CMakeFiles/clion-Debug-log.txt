@@ -1,0 +1,4 @@
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/src/mingw64-LLVM-UCRT/bin/ninja.exe -DCMAKE_C_COMPILER=C:/src/mingw64-LLVM-UCRT/bin/gcc.exe -DCMAKE_CXX_COMPILER=C:/src/mingw64-LLVM-UCRT/bin/g++.exe -G Ninja -S C:\ClionProjects\Quera -B C:\ClionProjects\Quera\build
+-- Configuring done (0.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/ClionProjects/Quera/build

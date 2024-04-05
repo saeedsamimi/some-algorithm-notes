@@ -54,7 +54,7 @@ void fib_measure(int n, ll func(int)) {
   auto start = chrono::high_resolution_clock::now();
   ll fib_temp = func(n);
   auto end = chrono::high_resolution_clock::now();
-  printf("%lld \t Time: %lld (ns)\n",
+  printf("%lld \t Time: %ld (ns)\n",
          fib_temp,
          chrono::duration_cast<chrono::nanoseconds>(end - start).count());
 }
@@ -87,6 +87,6 @@ int main() {
   //  165580141        Time: 1200 (ns) -> fib_mat2d
   //  165580141        Time: 200 (ns) -> fib_simple
   //  165580141        Time: 700 (ns) -> fib_dp
-  for (auto func: {fib_rec, fib_mat2d, fib_simple, fib_dp})
+  for (auto func: {fib_mat2d, fib_simple, fib_dp})
     fib_measure(n, func);
 }

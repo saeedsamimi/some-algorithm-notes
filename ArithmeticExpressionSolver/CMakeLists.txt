@@ -1,0 +1,3 @@
+project(ArithmeticSolver)
+
+add_executable(ArithmeticSolver ArithmeticSolver.cpp)

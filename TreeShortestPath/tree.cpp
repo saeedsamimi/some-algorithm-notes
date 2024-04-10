@@ -6,43 +6,40 @@
 using namespace std;
 
 class node : vector<int> {
-public:
+ public:
   node() : vector<int>() {}
-  
+
   void addNeigh(int v);
-  
+
   friend class tree;
 
-private:
+ private:
   int parent = -1;
   int depth = -1;
-  
+
   void set(int depth, int parent);
 };
 
 class tree : vector<node> {
-public:
-  explicit tree(int V) :
-          vector<node>(V), visited(new bool[V]{false}) {}
-  
+ public:
+  explicit tree(int V) : vector<node>(V), visited(new bool[V]{false}) {}
+
   void addEdge(int u, int v);
-  
-  ~tree() {
-    delete[] visited;
-  }
-  
+
+  ~tree() { delete[] visited; }
+
   void callDFS_max();
-  
+
   void callDFS(int s);
-  
+
   void getShortestPath(int from, int to, vector<int> &path);
 
-private:
+ private:
   void dfs(int s, int parent, int depth);
-  
+
   int depth(int v);
   int parent(int v);
-  
+
   bool *visited;
 };
 
@@ -77,22 +74,20 @@ int main() {
       out << "Question #" << i + 1 << " -> from " << u << " to " << v << ":\t";
       u--, v--;
       g.getShortestPath(u, v, path);
-      for (int j: path)
-        out << j + 1 << ' ';
+      for (int j : path) out << j + 1 << ' ';
       out << endl;
       path.clear();
     }
     out << endl;
   }
   auto endTime = chrono::high_resolution_clock::now();
-  auto duration = chrono::duration_cast<chrono::microseconds>(endTime - startTime).count();
+  auto duration =
+      chrono::duration_cast<chrono::microseconds>(endTime - startTime).count();
   cout << "-> Time elapsed: " << duration << "us";
   return 0;
 }
 
-void node::addNeigh(int v) {
-  push_back(v);
-}
+void node::addNeigh(int v) { push_back(v); }
 
 void node::set(int d, int p) {
   depth = d;
@@ -107,15 +102,14 @@ void tree::addEdge(int u, int v) {
 void tree::dfs(int s, int parent, int depth) {
   visited[s] = true;
   operator[](s).set(depth, parent);
-  for (int i: operator[](s))
-    if (!visited[i])
-      dfs(i, s, depth + 1);
+  for (int i : operator[](s))
+    if (!visited[i]) dfs(i, s, depth + 1);
 }
 
 void tree::callDFS_max() {
   int Max = 0, maxIndex = -1;
   for (int i = 0; i < size(); i++) {
-    int newLen = (int) operator[](i).size();
+    int newLen = (int)operator[](i).size();
     if (newLen > Max) {
       Max = newLen;
       maxIndex = i;
@@ -146,12 +140,8 @@ void tree::getShortestPath(int from, int to, vector<int> &path) {
   }
 }
 
-int tree::depth(int v) {
-  return operator[](v).depth;
-}
+int tree::depth(int v) { return operator[](v).depth; }
 
-int tree::parent(int v) {
-  return operator[](v).parent;
-}
+int tree::parent(int v) { return operator[](v).parent; }
 
 #pragma clang diagnostic pop

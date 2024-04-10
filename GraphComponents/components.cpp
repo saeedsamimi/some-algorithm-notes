@@ -21,7 +21,7 @@ int main() {
   for (int i = 0; i < E; ++i) {
     int u, v;
     cin >> u >> v;
-    addEdge(u-1, v-1);
+    addEdge(u - 1, v - 1);
   }
   countComponents(V);
   return 0;
@@ -35,9 +35,8 @@ void addEdge(int u, int v) {
 void dfs(int s, int count) {
   visited[s] = true;
   Data[s] = count;
-  for (int num: adj[s])
-    if (!visited[num])
-      dfs(num, count);
+  for (int num : adj[s])
+    if (!visited[num]) dfs(num, count);
 }
 
 void countComponents(int V) {
@@ -51,8 +50,7 @@ void countComponents(int V) {
   }
   cout << "Count of components is: " << count << endl;
   cout << "The color(data) of the components: \n";
-  for(int i = 0;i<V;i++)
-    cout << Data[i];
+  for (int i = 0; i < V; i++) cout << Data[i];
   cout << endl;
 }
 

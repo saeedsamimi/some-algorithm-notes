@@ -23,8 +23,7 @@ int main() {
   while (t--) {
     readAndProcess();
     memset(visited, 0, sizeof visited);
-    for (auto &i: adj)
-      i.clear();
+    for (auto &i : adj) i.clear();
     cout << endl;
   }
   return 0;
@@ -43,8 +42,7 @@ void readAndProcess() {
 void topologicalSort(int V) {
   memset(visited, 0, V);
   for (int i = 0; i < V; i++)
-    if (!visited[i])
-      topologicalSortUtil(i, V);
+    if (!visited[i]) topologicalSortUtil(i, V);
   while (!result.empty()) {
     cout << result.top() + 1 << ' ';
     result.pop();
@@ -53,14 +51,11 @@ void topologicalSort(int V) {
 
 void topologicalSortUtil(int s, int V) {
   visited[s] = true;
-  for (int i: adj[s])
-    if (!visited[i])
-      topologicalSortUtil(i, V);
+  for (int i : adj[s])
+    if (!visited[i]) topologicalSortUtil(i, V);
   result.push(s);
 }
 
-void addEdge(int from, int to) {
-  adj[from].push_back(to);
-}
+void addEdge(int from, int to) { adj[from].push_back(to); }
 
 #pragma clang diagnostic pop

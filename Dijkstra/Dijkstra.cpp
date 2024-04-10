@@ -27,7 +27,9 @@ int main() {
     memset(adjMat, 0, sizeof adjMat);
   }
   const auto end = chrono::high_resolution_clock::now();
-  cout << "Time elapsed: " << chrono::duration_cast<chrono::microseconds>(end - start).count() << "us";
+  cout << "Time elapsed: "
+       << chrono::duration_cast<chrono::microseconds>(end - start).count()
+       << "us";
   return 0;
 }
 
@@ -39,8 +41,7 @@ int minDistance(int V) {
   float min = INFINITY;
   int minIndex;
   for (int v = 0; v < V; v++)
-    if (!visited[v] && dist[v] <= min)
-      min = dist[v], minIndex = v;
+    if (!visited[v] && dist[v] <= min) min = dist[v], minIndex = v;
   return minIndex;
 }
 
@@ -55,8 +56,9 @@ void dijkstra(int V) {
     int minDist = minDistance(V);
     visited[minDist] = true;
     for (int v = 0; v < V; v++)
-      if (!visited[v] && adjMat[minDist][v] && dist[minDist] + (float) adjMat[minDist][v] < dist[v]) {
-        dist[v] = dist[minDist] + (float) adjMat[minDist][v];
+      if (!visited[v] && adjMat[minDist][v] &&
+          dist[minDist] + (float)adjMat[minDist][v] < dist[v]) {
+        dist[v] = dist[minDist] + (float)adjMat[minDist][v];
         parent[v] = minDist;
       }
   }
@@ -79,8 +81,7 @@ void printAllShortestPaths(int V) {
   stack<int> path;
   for (int i = 1; i < V; i++) {
     path.push(i);
-    for (int iter = parent[i]; iter != -1; iter = parent[iter])
-      path.push(iter);
+    for (int iter = parent[i]; iter != -1; iter = parent[iter]) path.push(iter);
     while (!path.empty()) {
       cout << fixed << setprecision(0) << path.top() + 1 << ' ';
       path.pop();

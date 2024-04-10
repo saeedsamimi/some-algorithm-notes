@@ -1,5 +1,6 @@
-#include "./BigInt.hpp"
 #include <chrono>
+
+#include "./BigInt.hpp"
 
 using namespace std;
 
@@ -8,16 +9,14 @@ typedef pair<BigInt, BigInt> FastPair;
 #define b second
 
 FastPair FastDoubling(int n) {
-  if (n == 0)
-    return {0, 1};
+  if (n == 0) return {0, 1};
   FastPair t = FastDoubling(n / 2);
   // As F(2n) = F(n)[2F(n+1) – F(n)]
   BigInt c = t.a * (2 * t.b - t.a);
   // As F(2n + 1) = F(n)^2 + F(n+1)^2
   BigInt d = t.a * t.a + t.b * t.b;
   // Check if N is odd or even
-  if (n % 2)
-    return {d, c + d};
+  if (n % 2) return {d, c + d};
   return {c, d};
 }
 

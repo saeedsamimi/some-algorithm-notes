@@ -1,4 +1,4 @@
-#include <limits>
+#include <climits>
 #include <iostream>
 
 using namespace std;
@@ -8,42 +8,36 @@ struct Edge {
 };
 
 class Graph {
-public:
-  Graph(int V, int E) : V(V), E(E) {
-    edges = new Edge[E];
-  }
-  
+ public:
+  Graph(int V, int E) : V(V), E(E) { edges = new Edge[E]; }
+
   void setEdge(int index, int from, int to, int weight) {
     edges[index] = {from, to, weight};
   }
-  
-  friend void BellmanFord(Graph &, int);
-  
-  ~Graph() {
-    delete[] edges;
-  }
 
-private:
+  friend void BellmanFord(Graph &, int);
+
+  ~Graph() { delete[] edges; }
+
+ private:
   int V, E;
-  
+
   struct Edge *edges;
 };
 
 void printArr(int dist[], int n) {
   printf("Vertex Distance from Source\n");
-  for (int i = 0; i < n; ++i)
-    printf("%d \t\t %d\n", i, dist[i]);
+  for (int i = 0; i < n; ++i) printf("%d \t\t %d\n", i, dist[i]);
 }
 
 void BellmanFord(Graph &graph, int src) {
   int V = graph.V;
   int E = graph.E;
   int *dist = new int[V];
-  
-  for (int i = 0; i < V; i++)
-    dist[i] = INT_MAX;
+
+  for (int i = 0; i < V; i++) dist[i] = INT_MAX;
   dist[src] = 0;
-  
+
   for (int i = 1; i <= V - 1; i++) {
     for (int j = 0; j < E; j++) {
       int u = graph.edges[j].src;
@@ -53,7 +47,7 @@ void BellmanFord(Graph &graph, int src) {
         dist[v] = dist[u] + weight;
     }
   }
-  
+
   for (int i = 0; i < E; i++) {
     int u = graph.edges[i].src;
     int v = graph.edges[i].dest;
@@ -64,7 +58,7 @@ void BellmanFord(Graph &graph, int src) {
       return;
     }
   }
-  
+
   printArr(dist, V);
   delete[] dist;
 }
@@ -81,7 +75,7 @@ int main() {
   graph.setEdge(5, 3, 2, 5);
   graph.setEdge(6, 3, 1, 1);
   graph.setEdge(7, 4, 3, -3);
-  
+
   BellmanFord(graph, 0);
   Graph graph2(6, 7);
   graph2.setEdge(0, 0, 1, -1);

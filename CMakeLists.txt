@@ -18,3 +18,6 @@ add_subdirectory(GraphCycles)
 add_subdirectory(TreeShortestPath)
 add_subdirectory(Parentheses)
 add_subdirectory(ArithmeticExpressionSolver)
+add_subdirectory(Matrix)
+
+add_subdirectory(googletest)

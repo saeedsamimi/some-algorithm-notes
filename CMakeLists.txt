@@ -20,5 +20,6 @@ add_subdirectory(Parentheses)
 add_subdirectory(ArithmeticExpressionSolver)
 add_subdirectory(Matrix)
 add_subdirectory(Polynomials)
+add_subdirectory(MathFunctionDriver)
 
 add_subdirectory(googletest)

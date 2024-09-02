@@ -1,12 +1,7 @@
-cmake_minimum_required(VERSION 3.29)
-project(Quera)
+cmake_minimum_required(VERSION 3.27...3.29)
+project(SomeAlgorithmNotes)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_BUILD_TYPE "Debug")
-
-if(MINGW AND WIN32)
-    set(CMAKE_EXE_LINKER_FLAGS "-static-libstdc++ -static-libgcc")
-endif ()
+set(CMAKE_CXX_STANDARD 23)
 
 add_subdirectory(Bellman-Ford)
 add_subdirectory(ShortestPath2D)
@@ -21,5 +16,6 @@ add_subdirectory(ArithmeticExpressionSolver)
 add_subdirectory(Matrix)
 add_subdirectory(Polynomials)
 add_subdirectory(MathFunctionDriver)
+add_subdirectory(Matrix-Constexpr)
 
 add_subdirectory(googletest)

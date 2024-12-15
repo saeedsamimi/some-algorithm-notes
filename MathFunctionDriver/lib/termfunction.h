@@ -8,19 +8,18 @@
 #include "basefunction.h"
 
 class TermFunction : public BaseFunction {
-private:
+ private:
   double m_coeff, m_exp;
-  
+
   friend class PolynomialFunction;
-  
+
   struct Compare {
     bool operator()(const TermFunction *, const TermFunction *);
   };
 
-public:
+ public:
   TermFunction(double coeff, double exp = 0);
   double evaluate(double input) override;
 };
 
-
-#endif //OBJECT_TERMFUNCTION_H
+#endif  // OBJECT_TERMFUNCTION_H

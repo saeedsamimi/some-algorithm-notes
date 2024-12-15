@@ -3,10 +3,10 @@
 //
 
 #include "sinfunction.h"
+
 #include <cmath>
 
-SinFunction::SinFunction(BaseFunction *func1)
-        : m_func(func1) {}
+SinFunction::SinFunction(BaseFunction *func1) : m_func(func1) {}
 
 double SinFunction::evaluate(double input) {
   return std::sin(m_func->evaluate(input));

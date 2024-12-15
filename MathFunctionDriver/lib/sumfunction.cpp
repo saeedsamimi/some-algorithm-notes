@@ -9,4 +9,4 @@ double SumFunction::evaluate(double input) {
 }
 
 SumFunction::SumFunction(BaseFunction *func1, BaseFunction *func2)
-        : m_f1(func1), m_f2(func2) {}
+    : m_f1(func1), m_f2(func2) {}

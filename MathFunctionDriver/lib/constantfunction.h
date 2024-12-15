@@ -6,13 +6,13 @@
 #define OBJECT_CONSTANTFUNCTION_H
 #include "basefunction.h"
 
-class ConstantFunction : public BaseFunction{
-private:
+class ConstantFunction : public BaseFunction {
+ private:
   double m_data;
-public:
+
+ public:
   ConstantFunction(double d);
   double evaluate(double) override;
 };
 
-
-#endif //OBJECT_CONSTANTFUNCTION_H
+#endif  // OBJECT_CONSTANTFUNCTION_H

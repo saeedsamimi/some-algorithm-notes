@@ -3,11 +3,11 @@
 //
 
 #include "sqrtfunction.h"
+
 #include <cmath>
 
 double SqrtFunction::evaluate(double input) {
   return std::sqrt(m_func->evaluate(input));
 }
 
-SqrtFunction::SqrtFunction(BaseFunction *func1)
-        : m_func(func1) {}
+SqrtFunction::SqrtFunction(BaseFunction *func1) : m_func(func1) {}

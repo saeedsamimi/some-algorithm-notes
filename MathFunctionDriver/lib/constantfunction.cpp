@@ -4,9 +4,6 @@
 
 #include "constantfunction.h"
 
-double ConstantFunction::evaluate(double) {
-  return m_data;
-}
+double ConstantFunction::evaluate(double) { return m_data; }
 
-ConstantFunction::ConstantFunction(double d)
-        : m_data(d) {}
+ConstantFunction::ConstantFunction(double d) : m_data(d) {}

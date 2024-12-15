@@ -8,12 +8,12 @@
 #include "basefunction.h"
 
 class SqrtFunction : public BaseFunction {
-private:
+ private:
   BaseFunction *m_func;
-public:
+
+ public:
   SqrtFunction(BaseFunction *func1);
   double evaluate(double input) override;
 };
 
-
-#endif //OBJECT_RADICALFUNCTION_H
+#endif  // OBJECT_RADICALFUNCTION_H

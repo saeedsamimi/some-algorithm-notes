@@ -8,13 +8,12 @@
 #include "basefunction.h"
 
 class SinFunction : public BaseFunction {
-private:
+ private:
   BaseFunction *m_func;
 
-public:
+ public:
   SinFunction(BaseFunction *func1);
   double evaluate(double input) override;
 };
 
-
-#endif //OBJECT_SINFUNCTION_H
+#endif  // OBJECT_SINFUNCTION_H

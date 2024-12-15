@@ -3,10 +3,10 @@
 //
 
 #include "cosfunction.h"
+
 #include <cmath>
 
-CosFunction::CosFunction(BaseFunction *func1)
-        : m_func(func1) {}
+CosFunction::CosFunction(BaseFunction *func1) : m_func(func1) {}
 
 double CosFunction::evaluate(double input) {
   return std::cos(m_func->evaluate(input));

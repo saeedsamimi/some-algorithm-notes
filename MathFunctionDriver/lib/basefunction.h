@@ -5,11 +5,9 @@
 #ifndef OBJECT_BASEFUNCTION_H
 #define OBJECT_BASEFUNCTION_H
 
-
 class BaseFunction {
-public:
+ public:
   virtual double evaluate(double input) = 0;
 };
 
-
-#endif //OBJECT_BASEFUNCTION_H
+#endif  // OBJECT_BASEFUNCTION_H

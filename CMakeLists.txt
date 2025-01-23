@@ -19,5 +19,6 @@ add_subdirectory(MathFunctionDriver)
 add_subdirectory(Matrix-Constexpr)
 add_subdirectory(BinarySearchTree)
 add_subdirectory(CircularLinkedList)
+add_subdirectory(TreeCollection)
 
 add_subdirectory(googletest)

@@ -2,6 +2,7 @@
 #include <chrono>
 #include <iostream>
 #include <random>
+#include <array>
 
 #include "BinarySearchTree.h"
 
